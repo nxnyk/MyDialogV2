@@ -63,7 +63,7 @@ public class BottomMenu extends BaseDialog {
     private ListView listMenu;
     private ViewGroup boxCancel;
     private TextView btnCancel;
-    
+    private int height = 0;
     private BottomMenu() {
     }
     
@@ -191,7 +191,7 @@ public class BottomMenu extends BaseDialog {
             switch (style) {
                 case STYLE_MATERIAL:
                     boxCancel.setVisibility(View.GONE);
-                    
+
                     if (customAdapter != null) {
                         menuArrayAdapter = customAdapter;
                     } else {
@@ -269,6 +269,9 @@ public class BottomMenu extends BaseDialog {
                         menuArrayAdapter = customAdapter;
                     } else {
                         menuArrayAdapter = new NormalMenuArrayAdapter(context.get(), R.layout.item_bottom_menu_kongzue, menuTextList);
+                    }
+                    if(height !=0){
+                        listMenu.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,height));
                     }
                     listMenu.setAdapter(menuArrayAdapter);
                     
@@ -525,6 +528,12 @@ public class BottomMenu extends BaseDialog {
         refreshView();
         return this;
     }
+
+    public BottomMenu setDialogHeight(int dp) {
+        this.height = dp;
+        refreshView();
+        return this;
+    }
     
     public BottomMenu setMenuTextList(String[] menuTexts) {
         List<String> list = new ArrayList<>();
@@ -718,5 +727,10 @@ public class BottomMenu extends BaseDialog {
     public BottomMenu setCustomAdapter(BaseAdapter customAdapter) {
         this.customAdapter = customAdapter;
         return this;
+    }
+
+    public int Dp2Px(Context context, float dp) {
+        final float scale = context.getResources().getDisplayMetrics().density; //当前屏幕密度因子
+        return (int) (dp * scale + 0.5f);
     }
 }
