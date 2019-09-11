@@ -530,7 +530,7 @@ public class BottomMenu extends BaseDialog {
     }
 
     public BottomMenu setDialogHeight(int dp) {
-        this.height = dp;
+        this.height = dip2px(dp);
         refreshView();
         return this;
     }
