@@ -60,10 +60,11 @@ public class BottomMenu extends BaseDialog {
     private TextView txtTitle;
     private RelativeLayout boxCustom;
     private ImageView titleSplitLine;
-    private ListView listMenu;
+    private FixItemListView listMenu;
     private ViewGroup boxCancel;
     private TextView btnCancel;
     private int height = 0;
+    private int maxitem = 0;
     private BottomMenu() {
     }
     
@@ -272,6 +273,9 @@ public class BottomMenu extends BaseDialog {
                     }
                     if(height !=0){
                         listMenu.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,height));
+                    }
+                    if(maxitem !=0){
+                        listMenu.setFixItemCount(maxitem);
                     }
                     listMenu.setAdapter(menuArrayAdapter);
                     
@@ -531,6 +535,12 @@ public class BottomMenu extends BaseDialog {
 
     public BottomMenu setDialogHeight(int dp) {
         this.height = dip2px(dp);
+        refreshView();
+        return this;
+    }
+
+    public BottomMenu setDialogMaxItem(int maxItem) {
+        this.maxitem = maxItem;
         refreshView();
         return this;
     }
