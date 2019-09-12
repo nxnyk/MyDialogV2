@@ -55,7 +55,7 @@
                     android:visibility="gone"
                     android:background="@color/dialogSplitIOSLight" />
 
-                <ListView
+                <com.kongzue.dialog.v3.FixItemListView
                     android:id="@+id/list_menu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -65,7 +65,7 @@
                     android:listSelector="@android:color/transparent"
                     android:overScrollMode="never"
                     android:scrollbarSize="7dp"
-                    android:scrollbarThumbVertical="@drawable/scrollbar_vertical_track"></ListView>
+                    android:scrollbarThumbVertical="@drawable/scrollbar_vertical_track"></com.kongzue.dialog.v3.FixItemListView>
 
             </LinearLayout>
 

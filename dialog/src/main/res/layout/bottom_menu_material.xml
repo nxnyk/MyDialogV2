@@ -31,13 +31,13 @@
             android:layout_marginBottom="10dp"
             android:visibility="gone"></RelativeLayout>
 
-        <ListView
+        <com.kongzue.dialog.v3.FixItemListView
             android:id="@+id/list_menu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:divider="@color/empty"
-            android:dividerHeight="1px"></ListView>
+            android:dividerHeight="1px"></com.kongzue.dialog.v3.FixItemListView>
 
         <LinearLayout
             android:id="@+id/box_cancel"
