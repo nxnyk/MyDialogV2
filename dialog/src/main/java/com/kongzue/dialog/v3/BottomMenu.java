@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
@@ -65,6 +66,7 @@ public class BottomMenu extends BaseDialog {
     private TextView btnCancel;
     private int height = 0;
     private int maxitem = 0;
+    private int bodyviewbackground = 0;
     private BottomMenu() {
     }
     
@@ -187,6 +189,10 @@ public class BottomMenu extends BaseDialog {
                 if (boxCancel != null) boxCancel.setVisibility(View.VISIBLE);
             } else {
                 if (boxCancel != null) boxCancel.setVisibility(View.GONE);
+            }
+
+            if(bodyviewbackground != 0){
+                if (boxBody != null) boxBody.setBackgroundResource(bodyviewbackground);
             }
             
             switch (style) {
@@ -530,6 +536,14 @@ public class BottomMenu extends BaseDialog {
     public BottomMenu setMenuTextList(List<String> menuTextList) {
         this.menuTextList = menuTextList;
         refreshView();
+        return this;
+    }
+
+    public BottomMenu setBodyViewBackgroud(int color) {
+
+        this.bodyviewbackground = color;
+        refreshView();
+
         return this;
     }
 
